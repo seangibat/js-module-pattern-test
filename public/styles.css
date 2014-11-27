@@ -1,0 +1,112 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: 16px helvetica,arial;
+  background-color: #DDD;
+  color: #111;
+}
+
+.list, .sidebar, .leftLinksContainer, .searchContainer {
+  box-sizing: border-box;
+  padding:15px;
+  float: left;
+}
+.list, .sidebar{
+  margin:15px;
+}
+.sidebar {
+  width: 400px;
+  background-color: white;
+  margin-left:0px;
+  position: fixed;
+  top:60px;
+  right: 15px;
+  left: calc(100% - 415px);
+  bottom:15px;
+  margin-bottom:0; 
+  overflow: scroll; 
+}
+.list {
+  min-width: 400px;
+  width: calc(100% - 445px);
+  background-color: white;
+  padding: 15px;
+  margin-top:75px;
+}
+
+.header {
+  width:100%;
+  background-color: white;
+  line-height: 1.5em;
+  box-shadow: 0px 3px 5px #888888;
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+}
+#search {
+  font: inherit;
+  line-height: 1.5em;
+  width: 300px;
+}
+.leftLinksContainer, .searchContainer {
+  width: 50%;
+}
+.leftLinksContainer {
+  padding: 18px;
+  color: #111;
+}
+.searchContainer {
+  text-align: right;
+}
+.clearfix {
+  clear: both;
+}
+
+
+a {
+  cursor: pointer;
+  text-decoration: underline;
+}
+a:visited {
+  color:#8F78AD;
+}
+.listItem {
+  cursor: pointer;
+}
+.listItem:hover {
+  background-color: #111;
+  color: white;
+}
+.overviewHeader {
+  font-weight: bold;
+  text-align: center;
+}
+.addMovie, .sortable {
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.addMovie:hover, .sortable:hover, a:hover {
+  text-decoration: none;
+}
+h1 {
+  margin-top: 0;
+}
+#listTitle{
+  margin-top:15px;
+}
+table {
+  border-collapse: collapse;
+}
+table tr td {
+  padding:5px;
+}
+tr:nth-child(even) {
+  background-color: #EEE;
+}
+.infoColumn{
+  text-align:center;
+}
+

@@ -2,11 +2,67 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>URDB!</title>
+  <title>Movie Database Search</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="main">hello world</div>
+
+  <div class="header">
+    <div class="leftLinksContainer">
+      <a id="recentLink">Recent</a> | <a id="myMoviesLink">Your Movies</a>
+    </div>
+    <div class="searchContainer">
+      <input id="search" type="text"/ placeholder="Search">
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+  <table class="list">
+  <thead><tr><th colspan="4"><h1 id="listTitle"></h1></th></tr></thead>
+  <tbody class="listBody"></tbody>
+  </table>
+  <div class="sidebar"></div>
+
   <script src="js/jquery-1.11.1.min.js"></script>
   <script src="js/handlebars-v1.3.0.js"></script>
+
+<!-- Templates! -->
+  <script type="text/x-handlebars-template" id="movies-list">
+    <tr class='listHeader'>
+      <th class="sortable">Name</th>
+      <th class="sortable">Release Date</th>
+      <th class="sortable">Score</th>
+      <th>My Movies</th>
+    </tr>
+    {{#each this}}
+      <tr class="listItem" data-id="{{ id }}">
+        <td>{{ title }}</td>
+        <td class="infoColumn">{{ release_date }}</td>
+        <td class="infoColumn">{{ vote_average }}</td>
+        <td class="addMovie infoColumn" data-index="{{@index}}">Add</td>
+      </tr>
+    {{/each}}
+  </script>
+
+  <script type="text/x-handlebars-template" id="movie-details">
+    <div class="movieDetails" data-id="{{ id }}">
+      <h1>{{ title }}</h1>
+      {{#if tagline}}
+        <h4>{{ tagline }}</h4>
+      {{/if}}
+      <img src="https://image.tmdb.org//t/p/w185{{ poster_path }}"><br><br>
+      <b>Release date:</b> {{ release_date }}<br><br>
+      <b>Vote average:</b> {{ vote_average }}<br><br>
+      <a href="http://www.imdb.com/title/{{ imdb_id }}" target="_blank">IMDB Link</a><br><br>
+      <b>Overview:</b><br> {{ overview }}
+    </div>
+  </script>
+<!-- End templates! -->
+
+  <script src="api-module.js"></script>
+  <script src="display-module.js"></script>
+  <script src="movies-module.js"></script>
+  <script src="scripts.js"></script>
+
 </body>
 </html>
